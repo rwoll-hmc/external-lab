@@ -30,7 +30,7 @@ object CalcParser extends JavaTokenParsers with PackratParsers{
     // term 
     lazy val term: PackratParser[Expr] = 
       (   term~"*"~factor ^^ {case l~"*"~r ⇒ Mult(l,r)}
-        | term~"*"~factor ^^ {case l~"/"~r ⇒ Div(l,r)}
+        | term~"/"~factor ^^ {case l~"/"~r ⇒ Div(l,r)}
         | factor)
         
     // factors
