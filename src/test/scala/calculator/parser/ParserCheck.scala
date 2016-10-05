@@ -21,6 +21,10 @@ object CalcParseSpec extends Properties("Parser") {
     
     property("addition") = forAll { (n1: Int, n2: Int) ⇒
       s"$n1 + $n2" ~> (Plus(Num(n1), Num(n2)))   
-    } 
+    }
+    
+    property("multiplication") = forAll { (n1: Int, n2: Int, n3: Int) ⇒
+      s"$n1 + $n2 * $n3" ~> (Plus(Num(n1), Mult(Num(n2), Num(n3)))) 
+    }
     
 }
